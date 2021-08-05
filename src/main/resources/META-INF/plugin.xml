@@ -7,13 +7,20 @@
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService"/>
-        <projectService serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService"/>
-    </extensions>
-
     <applicationListeners>
         <listener class="io.github.grigala.plugins.ruta.listeners.RutaProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+            topic="com.intellij.openapi.project.ProjectManagerListener" />
     </applicationListeners>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Ruta File" extensions="ruta" fieldName="INSTANCE"
+            implementationClass="io.github.grigala.plugins.ruta.language.RutaFileType"
+            language="Ruta" />
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService" />
+        <projectService
+            serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService" />
+    </extensions>
 </idea-plugin>
