@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>io.github.grigala.plugins.ruta</id>
     <name>Ruta</name>
-    <vendor>JetBrains</vendor>
+    <vendor>grigala</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
