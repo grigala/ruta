@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
-    <name>Template</name>
+    <id>io.github.grigala.plugins.ruta</id>
+    <name>Ruta</name>
     <vendor>JetBrains</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -8,12 +8,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
-        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
+        <applicationService serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService"/>
+        <projectService serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
+        <listener class="io.github.grigala.plugins.ruta.listeners.RutaProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
