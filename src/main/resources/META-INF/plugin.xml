@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>io.github.grigala.plugins.ruta</id>
+    <id>io.github.grigala.ruta</id>
     <name>Ruta</name>
     <vendor>grigala</vendor>
 
@@ -13,7 +13,7 @@
     </applicationListeners>
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Ruta File" extensions="ruta" fieldName="INSTANCE"
-            implementationClass="io.github.grigala.plugins.ruta.language.RutaFileType"
+            implementationClass="io.github.grigala.plugins.ruta.lang.RutaFileType"
             language="Ruta" />
     </extensions>
 
