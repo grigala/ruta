@@ -1,13 +1,20 @@
-package org.intellij.sdk.language;
+package io.github.grigala.plugins.ruta.lang.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import org.intellij.sdk.language.psi.RutaTypes;
+import io.github.grigala.plugins.ruta.lang.psi.RutaElementTypes;
 import com.intellij.psi.TokenType;
 
 %%
 
-%class RutaLexer
+%{
+    public _RutaLexer() {
+      this((java.io.Reader)null);
+    }
+%}
+
+%public
+%class _RutaLexer
 %implements FlexLexer
 %unicode
 %function advance
@@ -27,17 +34,17 @@ KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
 
 %%
 
-<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return RutaTypes.COMMENT; }
+<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return RutaElementTypes.COMMENT; }
 
-<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return RutaTypes.KEY; }
+<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return RutaElementTypes.KEY; }
 
-<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return RutaTypes.SEPARATOR; }
+<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return RutaElementTypes.SEPARATOR; }
 
 <WAITING_VALUE> {CRLF}({CRLF}|{WHITE_SPACE})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 
 <WAITING_VALUE> {WHITE_SPACE}+                              { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
 
-<WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return RutaTypes.VALUE; }
+<WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return RutaElementTypes.VALUE; }
 
 ({CRLF}|{WHITE_SPACE})+                                     { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 

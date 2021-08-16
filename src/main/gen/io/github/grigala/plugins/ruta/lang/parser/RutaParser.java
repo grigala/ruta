@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package io.github.grigala.plugins.ruta.lang.parser.RutaParser;
+package io.github.grigala.plugins.ruta.lang.parser;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
@@ -12,7 +12,7 @@ import com.intellij.lang.PsiParser;
 import com.intellij.lang.LightPsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
-public class kt implements PsiParser, LightPsiParser {
+public class RutaParser implements PsiParser, LightPsiParser {
 
   public ASTNode parse(IElementType t, PsiBuilder b) {
     parseLight(t, b);
