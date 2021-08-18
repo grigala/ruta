@@ -23,4 +23,8 @@
         <projectService
             serviceImplementation="io.github.grigala.plugins.ruta.services.RutaApplicationService" />
     </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <colorSettingsPage
+            implementation="io.github.grigala.plugins.ruta.lang.highlighter.RutaColorSettingsPage"/>
+    </extensions>
 </idea-plugin>
