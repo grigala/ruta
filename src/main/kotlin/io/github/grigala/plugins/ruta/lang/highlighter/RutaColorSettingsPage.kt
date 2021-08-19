@@ -9,8 +9,6 @@ import io.github.grigala.plugins.ruta.lang.Icons
 import javax.swing.Icon
 
 class RutaColorSettingsPage : ColorSettingsPage {
-    private val DESCRIPTORS: Array<AttributesDescriptor> = TODO()
-
     override fun getAttributeDescriptors(): Array<AttributesDescriptor> = DESCRIPTORS
 
     override fun getColorDescriptors(): Array<ColorDescriptor> = ColorDescriptor.EMPTY_ARRAY
@@ -25,8 +23,12 @@ class RutaColorSettingsPage : ColorSettingsPage {
         TODO("Not yet implemented")
     }
 
-    override fun getAdditionalHighlightingTagToDescriptorMap(): MutableMap<String, TextAttributesKey>? {
-        TODO("Not yet implemented")
+    override fun getAdditionalHighlightingTagToDescriptorMap() = ANNOTATOR_TAGS
+
+    companion object {
+        private val DESCRIPTORS: Array<AttributesDescriptor> = RutaColor.values().map { it.attributeDescriptor }.toTypedArray()
+        private val ANNOTATOR_TAGS: Map<String, TextAttributesKey> = RutaColor.values().associateBy({ it.name }, { it.textAttributesKey })
+
     }
 
 }
